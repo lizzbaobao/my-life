@@ -48,7 +48,8 @@ export default function WelcomePage({ onEnter }: WelcomePageProps) {
                 /> */}
                 <div className="text-6xl font-bold">👤</div>
               </div>
-              <h2 className="text-2xl font-bold mb-2 text-gray-500">賴彥明</h2>
+              <p className="text-2xl font-bold mb-2 text-gray-500">賴彥明</p>
+              <p className="text-lg font-bold mb-2 text-gray-500">Murray Lai</p>
             </div>
           </div>
 
@@ -56,18 +57,18 @@ export default function WelcomePage({ onEnter }: WelcomePageProps) {
           <div className="lg:w-1/2 p-8 lg:p-12">
             <div className="h-full flex flex-col justify-center">
               <h1 className="text-4xl font-bold text-gray-800 mb-6">
-                歡迎來到我的世界
+                My Philosophy
               </h1>
 
               <div className="space-y-4 text-gray-600">
                 <p className="text-lg leading-relaxed">
                   你好！我是一個充滿熱情和創造力的人。我喜歡探索新事物，
-                  學習新技能，並且總是尋找機會來挑戰自己。
+                  我喜歡與人交流學習，並尋找機會來挑戰自己。
                 </p>
 
                 <p className="text-lg leading-relaxed">
-                  在我的生活中，我不覺得我是一個特別的人，但我知道自己是一個努力的人。
-                  我喜歡探索新事物，學習新技能，嘗試各種機會來挑戰自己。
+                  在我成長的年頭，我不覺得我是一個特別的人，但我知道自己是一個努力的人。
+                  我喜歡探索新事物，喜歡打遊戲，喜歡成就感，所以愛學習新技能。
                 </p>
                 <div className="flex flex-col gap-2">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">

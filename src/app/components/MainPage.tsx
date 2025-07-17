@@ -1,12 +1,32 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import SkillLevel from "./SkillLevel";
 
 export default function MainPage() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // 延遲一點時間讓轉場動畫完成
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100">
+    <div
+      className={`min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 transition-all duration-1000 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+    >
       {/* 導航欄 */}
-      <nav className="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+      <nav
+        className={`bg-white shadow-lg fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <h1 className="text-2xl font-bold text-gray-800">Lai's space</h1>
@@ -35,7 +55,11 @@ export default function MainPage() {
       </nav>
 
       {/* 主要內容 */}
-      <main className="max-w-6xl mx-auto px-4 py-12 mt-16">
+      <main
+        className={`max-w-6xl mx-auto px-4 py-12 mt-16 transition-all duration-1000 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
         {/* 關於我區塊 */}
         <section id="about" className="mb-16">
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
@@ -59,10 +83,17 @@ export default function MainPage() {
                 <p className="text-gray-600">Murray Lai</p>
               </div>
               <div className="space-y-4">
-                <p className="text-gray-700 leading-relaxed">
-                  你好，我是Murray！一位喜歡使用小工具來優化電腦體驗的人，畢業於國立臺北科技大學電子工程系畢業生。在校期間除了扎實的電子工程基礎，我也特別投入程式相關課程，更在叡揚資訊的實習中，體驗了將程式應用於實際場景的樂趣。
-                  畢業後，我嘗試不同類型的工作，也利用閒暇時間在家裡寫程式，跟朋友寫一些有趣的小工具。
-                </p>
+                <div className="">
+                  <p className="text-gray-700 leading-relaxed">
+                    你好，我是Murray！一位喜歡使用小工具來優化電腦體驗的人，畢業於國立臺北科技大學電子工程系。
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    在校期間除了扎實的電子工程基礎，我也特別投入程式相關課程，並在叡揚資訊的實習中，在產品維護程式，了解程式裡面產品以及專案的區別。
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    畢業後，我嘗試不同類型的工作，也利用閒暇時間在家裡寫程式，跟朋友寫一些有趣的小工具。
+                  </p>
+                </div>
                 <p className="text-gray-700 leading-relaxed">
                   喜歡在閒暇時間弄一些小程式來滿足自己的想法，此外我也喜歡閱讀各式書籍。當需要放鬆時，我會出門散心，讓自己充電。
                 </p>
@@ -91,14 +122,13 @@ export default function MainPage() {
                   <span className="text-gray-700">React</span>
                   <SkillLevel level={4} color="red" />
                 </div>
-
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-700">Python</span>
+                  <span className="text-gray-700">HTML/CSS</span>
                   <SkillLevel level={4} color="blue" />
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-700">CSS</span>
-                  <SkillLevel level={4} color="purple" />
+                  <span className="text-gray-700">Python</span>
+                  <SkillLevel level={3} color="purple" />
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-700">Node.js</span>
@@ -225,7 +255,11 @@ export default function MainPage() {
         </section>
       </main>
 
-      <footer className="bg-gray-800 text-white py-8">
+      <footer
+        className={`bg-gray-800 text-white py-8 transition-all duration-700 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p>&copy; 2024 Yen-Ming Lai. 保留所有權利.</p>
         </div>
