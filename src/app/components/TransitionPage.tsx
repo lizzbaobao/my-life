@@ -7,7 +7,7 @@ interface TransitionPageProps {
 }
 
 // 葉子 SVG 組件 - 更優雅的設計
-const LeafParticle = ({ className }: { className: string }) => (
+const CircleParticle = ({ className }: { className: string }) => (
   <svg
     width="20"
     height="20"
@@ -15,9 +15,8 @@ const LeafParticle = ({ className }: { className: string }) => (
     fill="currentColor"
     className={className}
   >
-    {/* 葉子主體 */}
     <path d="M12 2C8.5 2 6 4.5 6 8C6 11.5 8.5 14 12 14C15.5 14 18 11.5 18 8C18 4.5 15.5 2 12 2Z" />
-    {/* 葉脈 */}
+
     <path
       d="M12 4C13.1 4 14 4.9 14 6C14 7.1 13.1 8 12 8C10.9 8 10 7.1 10 6C10 4.9 10.9 4 12 4Z"
       fill="rgba(255,255,255,0.3)"
@@ -109,7 +108,6 @@ export default function TransitionPage({
         </div>
       </div>
 
-      {/* 葉子粒子效果 */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(15)].map((_, i) => (
           <div
@@ -126,11 +124,10 @@ export default function TransitionPage({
               animationDuration: `${3 + Math.random() * 2}s`,
             }}
           >
-            <LeafParticle className="text-green-400 drop-shadow-sm animate-leaf-sway" />
+            <CircleParticle className="text-green-400 drop-shadow-sm animate-leaf-sway" />
           </div>
         ))}
 
-        {/* 額外的葉子，不同顏色 */}
         {[...Array(10)].map((_, i) => (
           <div
             key={`extra-${i}`}
@@ -146,11 +143,10 @@ export default function TransitionPage({
               animationDuration: `${3.5 + Math.random() * 2}s`,
             }}
           >
-            <LeafParticle className="text-yellow-400 drop-shadow-sm animate-leaf-sway" />
+            <CircleParticle className="text-yellow-400 drop-shadow-sm animate-leaf-sway" />
           </div>
         ))}
 
-        {/* 第三組葉子，更小的尺寸 */}
         {[...Array(8)].map((_, i) => (
           <div
             key={`small-${i}`}
@@ -166,7 +162,7 @@ export default function TransitionPage({
               animationDuration: `${4 + Math.random() * 1}s`,
             }}
           >
-            <LeafParticle className="text-green-300 drop-shadow-sm animate-leaf-sway" />
+            <CircleParticle className="text-green-300 drop-shadow-sm animate-leaf-sway" />
           </div>
         ))}
       </div>
