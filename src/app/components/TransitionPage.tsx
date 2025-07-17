@@ -127,7 +127,7 @@ export default function TransitionPage({
             <CircleParticle className="text-green-400 drop-shadow-sm animate-leaf-sway" />
           </div>
         ))}
-
+        {/* 額外的葉子，不同顏色 */}
         {[...Array(10)].map((_, i) => (
           <div
             key={`extra-${i}`}
